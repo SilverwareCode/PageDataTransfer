@@ -1,0 +1,55 @@
+﻿<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <system.web>
+    <customErrors mode="Off" defaultRedirect="ErrorPage.aspx"/>
+    <compilation debug="true" strict="false" explicit="true" targetFramework="4.5" >
+      <codeSubDirectories>
+        <add directoryName="VB" />
+        <add directoryName="CS" />
+      </codeSubDirectories>
+    </compilation>
+    <httpRuntime targetFramework="4.5" />
+    <authentication mode="Forms" />
+    <membership defaultProvider="MyMembershipProvider">
+      <providers>
+        <add name="MyMembershipProvider"
+             type="Altairis.Web.Security.TableMembershipProvider, Altairis.Web.Security"
+             connectionStringName="TableAuthDB" />
+      </providers>
+    </membership>
+    <roleManager enabled="true" defaultProvider="MyRoleProvider">
+      <providers>
+        <clear/>
+        <add name="MyRoleProvider"
+             type="Altairis.Web.Security.TableRoleProvider, Altairis.Web.Security"
+             connectionStringName="TableAuthDB"/>
+      </providers>
+    </roleManager>
+  </system.web>
+  <appSettings>
+    <add key="ValidationSettings:UnobtrusiveValidationMode" value="WebForms" />
+    <add key="Google.ReCaptcha.Secret" value="6LdDGQoUAAAAAI_552hav-tU3oC7Zsf7ojihlYJQ" />
+    <add key="urlRegistration" value="~/newregistration.aspx" />
+    <add key="urlPasswordRecovery" value="http://www.youngeroptics.eu/passwordrecovery.aspx" />
+    <add key="urlPasswordRecoveryRequest" value="~/forgotpassword.aspx" />
+    <add key="WebserviceAccountAddress" value="web@youngeroptics.eu" />
+    <add key="WebserviceAccountPassword" value="19mastr73" />
+    <add key="SmtpServer" value="mail4.aspone.cz" />
+    <add key="SalesAccountAddress" value="info@youngereurope.com" />
+  </appSettings>
+  <connectionStrings>
+    <add name="TableAuthDB" connectionString="server=sql6.aspone.cz;uid=db3006;pwd=20youngerEu15;database=db3006"
+      providerName="System.Data.SqlClient" />
+    <add name="YOEU_db3006_ConnectionString" connectionString="server=sql6.aspone.cz;uid=db3006;pwd=20youngerEu15;database=db3006"
+      providerName="System.Data.SqlClient" />
+    <add name="nupolar_ConnectionString" connectionString="server=sql6.aspone.cz;uid=db2863;pwd=20nupolarEu14;database=db2863"
+         providerName="System.Data.SqlClient"/>
+    <add name="DefaultConnection" connectionString="server=sql6.aspone.cz;uid=db3006;pwd=20youngerEu15;database=db3006"
+      providerName="System.Data.SqlClient" />
+    <!--<add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=db3006;Integrated Security=True" providerName="System.Data.SqlClient" />-->
+  </connectionStrings>
+</configuration>
